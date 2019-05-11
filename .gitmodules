@@ -1,0 +1,3 @@
+[submodule "parkrun-jobar8"]
+	path = parkrun-jobar8
+	url = git@github.com:jobar8/parkrun.git
