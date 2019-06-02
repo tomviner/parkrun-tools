@@ -1,9 +1,21 @@
-import parkrun
 import stackprinter
+
+import parkrun
+
 
 stackprinter.set_excepthook()
 
-infile = r'hh-2019-05-11-tabs.txt'
-results = parkrun.importResults(infile, skiprows=12, skipfooter=37, report=True)
+inputs = {
+    'hh': 'hh-2019-05-11-tabs.txt',
+    'tw': 'tw-2019-06-01-tabs.txt',
+}
 
-parkrun.print_stats(results)
+for infile in inputs.values():
+    results = parkrun.importResults(
+        infile, skiprows=12, skipfooter=38, report=True
+    )
+
+    parkrun.print_stats(results)
+
+    # parkrun.time_hist(results, style='ggplot').show()
+    parkrun.ageGrade_hist(results, style='ggplot').show()
